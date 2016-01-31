@@ -9,14 +9,21 @@
       <%= message.body %>
     <br>
     <% end %>
-    </div>
+   </div>
 </div>
 
-<%= form_for(@message) do |f| %>
-  名前:
-  <%= f.text_field :name %>
 
-  内容:
-  <%= f.text_field :body %>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
+<%= form_for(Message.new, html: {class: "form-horizontal"})  do |f| %>
+  <div class="form-group">
+    <label class="col-sm-2 control-label text-center">名前:</label>
+    <%= f.text_field :name %> 
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label text-center">内容:</label>
+    <%= f.text_area :body %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: "btn col-sm-offset-2 btn-primary text-center" %>
+  </div>
 <% end %>
+</form>
